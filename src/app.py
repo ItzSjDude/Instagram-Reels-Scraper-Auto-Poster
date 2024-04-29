@@ -24,7 +24,7 @@ def run_scheduler():
         remover.main()
         shorts.main()
         time.sleep(60)
-        print("sleeping"")
+        print("sleeping....")
     # shorts.main()
     
    
