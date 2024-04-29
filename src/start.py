@@ -22,7 +22,8 @@ def configure():
         st.write("1. start - Begin the configuration setup.")
         st.write("2. launch - Directly launch the application.")
     elif command.lower() == "start":
-        yield from start_configuration()
+        gen = start_configuration()
+        next(gen)
     elif command.lower() == "launch":
         st.write("Launching the application...")
         launch_app()
@@ -106,5 +107,4 @@ def launch_app():
     os.system(python_executable_path + " app.py 1")
 
 # Run the configuration setup
-gen = configure()
-next(gen)
+configure()
