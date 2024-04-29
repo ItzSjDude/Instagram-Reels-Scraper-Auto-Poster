@@ -24,7 +24,7 @@ def main():
     elif command.lower() == "launch":
         st.write("Launching the application...")
         launch_app()
-    else:
+    elif command.strip():  # Check if the command is not empty
         st.write("Invalid command. Type 'help' to see available commands.")
 
 # Generator function to handle the configuration steps
