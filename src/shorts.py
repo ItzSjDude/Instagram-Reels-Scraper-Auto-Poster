@@ -45,7 +45,7 @@ from pytube import YouTube
 def extract_channel_id(channel_link: str) -> str:
     # print(video_url)
     try:
-        yt = YouTube(video_url)
+        yt = YouTube(channel_link)
         channel_id = yt.channel_id
         return channel_id
     except Exception as e:
