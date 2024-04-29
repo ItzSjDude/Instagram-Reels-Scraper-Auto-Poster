@@ -6,7 +6,7 @@ import config
 from datetime import datetime
 
 # Create the database engine
-engine = create_engine('postgresql://avnadmin:AVNS_H2iQqBuoK28CdaJQxRL@pg-1c30e6f7-itzsjdude-c0e8.d.aivencloud.com:10895/mytestdb?sslmode=require)
+engine = create_engine('postgresql://avnadmin:AVNS_H2iQqBuoK28CdaJQxRL@pg-1c30e6f7-itzsjdude-c0e8.d.aivencloud.com:10895/mytestdb?sslmode=require')
 
 # Create a session factory
 Session = sessionmaker(bind=engine)
