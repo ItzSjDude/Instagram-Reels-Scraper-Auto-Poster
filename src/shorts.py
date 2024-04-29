@@ -31,7 +31,7 @@ def download_shorts_video(video_url: str, output_directory: str = "downloads") -
         "format": "best[height<=1080]",
         "logger": Logger(),
     }
-
+    print(output_directory)
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         ydl.add_default_info_extractors()
         info_dict = ydl.extract_info(video_url, download=False)
