@@ -40,22 +40,18 @@ def download_shorts_video(video_url: str, output_directory: str = "downloads") -
         return output_filename
 
 # Function to extract channel ID from the given channel link
+from pytube import YouTube
+
 def extract_channel_id(channel_link: str) -> str:
-    pattern = r"(?:youtube\.com/channel/)([^/?&]+)"
-    match = re.search(pattern, channel_link)
-    if match:
-        return match.group(1)
-    else:
-        response = requests.get(channel_link)
-        if response.status_code == 200:
-            pattern = r'<meta itemprop="channelId" content="([^"]+)">'
-            match = re.search(pattern, response.text)
-            if match:
-                return match.group(1)
-            else:
-                raise ValueError("Unable to extract channel ID from channel link")
-        else:
-            raise ValueError("Unable to fetch channel link")
+    # print(video_url)
+    try:
+        yt = YouTube(video_url)
+        channel_id = yt.channel_id
+        return channel_id
+    except Exception as e:
+        print(str(e))
+
+        return None
 
 # Function to get shorts videos from a YouTube channel using YouTube API
 def get_shorts_videos(channel_id: str, api_key: str, max_results: int = 50):
