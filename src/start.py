@@ -31,9 +31,10 @@ def start_configuration():
     # Step 1: File Remover Configuration
     st.write("Step 1: File Remover Configuration")
     mainConfig.IS_REMOVE_FILES = st.text_input("Turn On File Remover After Posting? 1=On;0=Off :")
-    Helper.save_config('IS_REMOVE_FILES', mainConfig.IS_REMOVE_FILES)
     if mainConfig.IS_REMOVE_FILES.strip() not in ("0", "1"):
         st.write("Invalid input. Please enter only '0' or '1'.")
+        return  # Exit the function if input is invalid
+    Helper.save_config('IS_REMOVE_FILES', mainConfig.IS_REMOVE_FILES)
 
     if mainConfig.IS_REMOVE_FILES == "1":
         mainConfig.REMOVE_FILE_AFTER_MINS = st.number_input("Define the interval in minutes to remove uploaded files:")
@@ -42,9 +43,10 @@ def start_configuration():
     # Step 2: Reels Scraper Configuration
     st.write("Step 2: Reels Scraper Configuration")
     mainConfig.IS_ENABLED_REELS_SCRAPER = st.text_input("Turn On Reels Scraper? 1=On;0=Off :")
-    Helper.save_config('IS_ENABLED_REELS_SCRAPER', mainConfig.IS_ENABLED_REELS_SCRAPER)
     if mainConfig.IS_ENABLED_REELS_SCRAPER.strip() not in ("0", "1"):
         st.write("Invalid input. Please enter only '0' or '1'.")
+        return  # Exit the function if input is invalid
+    Helper.save_config('IS_ENABLED_REELS_SCRAPER', mainConfig.IS_ENABLED_REELS_SCRAPER)
 
     if mainConfig.IS_ENABLED_REELS_SCRAPER == "1":
         mainConfig.FETCH_LIMIT = st.number_input("Screper fetch limit in number Ex. 50")
@@ -55,9 +57,10 @@ def start_configuration():
     # Step 3: Reels Autoposter Configuration
     st.write("Step 3: Reels Autoposter Configuration")
     mainConfig.IS_ENABLED_AUTO_POSTER = st.text_input("Turn On Reels Autoposter? 1=On;0=Off :")
-    Helper.save_config('IS_ENABLED_AUTO_POSTER', mainConfig.IS_ENABLED_AUTO_POSTER)
     if mainConfig.IS_ENABLED_AUTO_POSTER.strip() not in ("0", "1"):
         st.write("Invalid input. Please enter only '0' or '1'.")
+        return  # Exit the function if input is invalid
+    Helper.save_config('IS_ENABLED_AUTO_POSTER', mainConfig.IS_ENABLED_AUTO_POSTER)
 
     if mainConfig.IS_ENABLED_AUTO_POSTER == "1":
         mainConfig.POSTING_INTERVAL_IN_MIN = st.number_input("Reels posting interval in minutes Ex. 10: For every 10 minutes")
