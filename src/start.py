@@ -4,6 +4,8 @@ import sys
 import json
 import config as mainConfig
 import helpers as Helper
+import app
+
 
 # Define the Streamlit layout
 def main():
@@ -56,7 +58,7 @@ def start_configuration():
 # Function to launch the application
 def launch_app():
     python_executable_path = sys.executable
-    os.system(python_executable_path + "../app.py 1")
+    app.run_scheduler()
 
 # Run the Streamlit app
 if __name__ == "__main__":
