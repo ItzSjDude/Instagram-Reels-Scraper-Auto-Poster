@@ -56,7 +56,7 @@ def start_configuration():
 # Function to launch the application
 def launch_app():
     python_executable_path = sys.executable
-    os.system(python_executable_path + " app.py 1")
+    os.system(python_executable_path + "../app.py 1")
 
 # Run the Streamlit app
 if __name__ == "__main__":
