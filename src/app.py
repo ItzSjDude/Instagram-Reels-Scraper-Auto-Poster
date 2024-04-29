@@ -19,8 +19,10 @@ def run_scheduler():
     if config.IS_ENABLED_REELS_SCRAPER == "1" or config.IS_ENABLED_AUTO_POSTER == "1" :
         # Instagram login client is here
         api = auth.login()
+    shorts.main()    
     poster.main(api)
+    
     remover.main()
-    shorts.main()
+    # shorts.main()
     
    
